@@ -27,7 +27,7 @@ public class HomeController : Controller
         var adminMail = _genericService.ContactService.GetAllAsync().Result.FirstOrDefault()?.Mail;
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(subject) || string.IsNullOrEmpty(message))
         {
-            TempData["Message"] = "Lütfen tüm alanlarý doldurun.";
+            TempData["Message"] = "LÃ¼tfen tÃ¼m alanlarÃ½ doldurun.";
             TempData["Color"] = "red";
             return Redirect("/#iletisim");
         }
@@ -38,35 +38,35 @@ public class HomeController : Controller
             mail.From = new MailAddress(adminMail);
             mail.To.Add(adminMail);
             mail.Subject = subject;
-            mail.Body = $"Gönderen: {name} ({email})\n\nMesaj:\n{message}";
+            mail.Body = $"GÃ¶nderen: {name} ({email})\n\nMesaj:\n{message}";
             mail.ReplyToList.Add(new MailAddress(email));
 
             using var smtp = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential(adminMail, "okvwjcwfqjkzndeq"),
+                Credentials = new NetworkCredential(adminMail, "uygulama sireniz" ),
                 EnableSsl = true
             };
             smtp.Send(mail);
 
-            TempData["Message"] = "Mesajýnýz baþarýyla gönderildi.";
+            TempData["Message"] = "MesajÃ½nÃ½z baÃ¾arÃ½yla gÃ¶nderildi.";
             TempData["Color"] = "green";
         }
 
         catch (FormatException)
         {
-            TempData["Message"] = "Lütfen geçerli bir e-posta adresi girin.";
+            TempData["Message"] = "LÃ¼tfen geÃ§erli bir e-posta adresi girin.";
             TempData["Color"] = "red";
 
         }
         catch (SmtpException)
         {
-            TempData["Message"] = "Mail gönderilirken sunucu hatasý oluþtu.";
+            TempData["Message"] = "Mail gÃ¶nderilirken sunucu hatasÃ½ oluÃ¾tu.";
             TempData["Color"] = "red";
 
         }
         catch (Exception ex)
         {
-            TempData["Message"] = "Beklenmedik bir hata oluþtu: " + ex.Message;
+            TempData["Message"] = "Beklenmedik bir hata oluÃ¾tu: " + ex.Message;
             TempData["Color"] = "red";
 
         }
