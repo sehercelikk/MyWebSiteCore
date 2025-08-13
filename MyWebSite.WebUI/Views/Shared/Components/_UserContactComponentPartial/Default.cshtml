@@ -1,0 +1,68 @@
+﻿@model List<Contact>
+<section id="iletisim" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>İLETİŞİM</h2>
+    </div>
+    <!-- End Section Title -->
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row g-4 g-lg-5">
+                <div class="col-lg-5">
+                    <div class="info-box">
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="content">
+                                <h4>
+                                    <label>@item.Address</label>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div class="content">
+                                <h4>
+                                    <label>@item.Mail</label>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="bi bi-github"></i>
+                            </div>
+                            <div class="content">
+                                <h4>
+                                    <a href="@item.Github" target="_blank" class="text-break">
+                                        @item.Github
+                                    </a>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="bi bi-linkedin"></i>
+                            </div>
+                            <div class="content">
+                                <h4>
+                                    <a href="@item.Linkedln" target="_blank" class="text-break">
+                                        @item.Linkedln
+                                    </a>
+                                </h4>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("_UserSendMessageComponentPartial")
+               
+            </div>
+        </div>
+    }
+
+</section>

@@ -1,0 +1,41 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Experience";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+    <h4 class="text-center mb-4 text-primary">Deneyimler</h4>
+    <table class="table table-bordered">
+        <tr class="text-center">
+            <th>SIRA</th>
+            <th>KURUM</th>
+            <th>UNVAN</th>
+            <th>TARİH</th>
+            <th>AÇIKLAMA</th>
+            <th>İŞLEMLER</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.CompanyName</td>
+                    <td>@item.Title</td>
+                    <td>@item.Tarih</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="/Admin/DeleteExperience/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                            <a href="/Admin/UpdateExperience/@item.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<a href="/Admin/AddExperience" class="btn btn-success btn-sm">Ekle</a>

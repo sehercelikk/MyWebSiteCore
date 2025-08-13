@@ -1,0 +1,46 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+        <h4 class="text-center mb-4 text-primary">Bilgilerim</h4>
+        <form class="w-75 mx-auto" enctype="multipart/form-data" method="post" asp-action="UpdateContact" asp-controller="Admin">
+            <input type="hidden" name="Id" value="@item.Id" />
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Adres</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Address" value="@item.Address" class="form-control form-control-lg" />
+                </div>
+            </div>
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Mail</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Mail" value="@item.Mail" class="form-control form-control-lg" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Linkedln</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Linkedln" value="@item.Linkedln" class="form-control form-control-lg" />
+                </div>
+            </div>
+            <div class="form-group mb-3 row align-items-start">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Github</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Github" value="@item.Github" class="form-control form-control-lg" />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-50">Güncelle</button>
+            </div>
+        </form>
+    </div>
+}
+
+

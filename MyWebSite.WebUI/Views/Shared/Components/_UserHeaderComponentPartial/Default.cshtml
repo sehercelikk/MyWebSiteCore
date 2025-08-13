@@ -1,0 +1,36 @@
+﻿@model List<Contact>
+ <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <div class="header-container d-flex flex-column align-items-start">
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#hakkimda" class="active"><i class="bi bi-house navicon"></i>Hakkımda</a></li>
+                    <li><a href="#egitim"><i class="bi bi-person navicon"></i>Eğitim</a></li>
+                    <li><a href="#deneyimler"><i class="bi bi-file-earmark-text navicon"></i>Deneyimler</a></li>
+                    <li><a href="#beceriler"><i class="bi bi-images navicon"></i>Beceriler</a></li>
+                    <li><a href="#hobiler"><i class="bi bi-hdd-stack navicon"></i>Hobiler</a></li>
+                    <li><a href="#sertifikalar"><i class="bi bi-hdd-stack navicon"></i>Sertifikalar</a></li>
+                    <li><a href="#projeler"><i class="bi bi-envelope navicon"></i>Projeler</a></li>
+                    <li><a href="#iletisim"><i class="bi bi-envelope navicon"></i>İletişim</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links text-center">
+            @foreach (var contact in Model)
+            {
+                <a href="@contact.Github" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                </a>
+            }
+            @foreach (var contact in Model)
+            {
+                <a href="@contact.Linkedln" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            }
+            </div>
+
+        </div>
+
+    </header>

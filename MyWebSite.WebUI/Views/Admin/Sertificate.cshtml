@@ -1,0 +1,40 @@
+﻿@model List<Sertificate>
+@{
+    ViewData["Title"] = "Sertificate";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+    <h4 class="text-center mb-4 text-primary">Sertifikalar</h4>
+    <table class="table table-bordered">
+        <tr class="text-center">
+            <th>SIRA</th>
+            <th>SERTİFİKA ADI</th>
+            <th>KURUM</th>
+            <th>TARİH</th>
+            <th>İŞLEMLER</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <th>@item.Id</th>
+                    <td>@item.SertificateName</td>
+                    <td>@item.Company</td>
+                    <td>@item.Tarih</td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="/Admin/DeleteSertificate/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                            <a href="/Admin/UpdateSertificate/@item.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<a href="/Admin/AddSertificate" class="btn btn-success btn-sm">Ekle</a>
+

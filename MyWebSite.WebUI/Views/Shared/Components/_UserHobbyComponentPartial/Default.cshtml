@@ -1,0 +1,30 @@
+﻿@model List<Hobby>
+<section id="hobiler" class="stats section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>HOBİLER</h2>
+    </div>
+    <div class="container mt-40">
+        <div class="row mt-30">
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-md-6 col-sm-12 mb-4">
+                    <div class="box14">
+                        <div class="image-wrapper" style="height: 500px">
+                            <img class="pic-1" src='@item.ImageUrl'>
+                        </div>
+                        <div class="box-content">
+                            <h3 class="title text-center">
+                                <label>@item.Name</label>
+                            </h3>
+                            <p class="icon">
+                                <label>@item.Description</label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

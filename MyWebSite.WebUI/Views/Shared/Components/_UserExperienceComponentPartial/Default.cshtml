@@ -1,0 +1,42 @@
+﻿@model List<Experience>
+<section id="deneyimler" class="resume section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>İŞ DENEYİMİ</h2>
+    </div>
+    <!-- End Section Title -->
+    @foreach (var item in Model)
+    {
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4">
+                <!-- Right column with experience and education -->
+                <div class="col-lg-12 ps-4 ps-lg-5">
+                    <!-- Experience Section -->
+                    <div class="resume-section" data-aos="fade-up">
+                        <h3>
+                            <i class="bi bi-briefcase me-2"></i>
+                            <label>@item.CompanyName</label>
+                        </h3>
+
+                        <div class="resume-item">
+                            <h5>
+                                <label>@item.Tarih</label>
+                            </h5>
+                            <h4>
+                                <i class="bi bi-building"></i>
+                                <label>@item.Title</label>
+                            </h4>
+                            <ul>
+                                <li>
+                                    <label>@item.Description</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+</section>

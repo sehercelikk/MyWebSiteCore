@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<form asp-action="Register" method="post">
+    <input type="text" name="userName" placeholder="Kullanıcı Adı" required />
+    <input type="password" name="password" placeholder="Şifre" required />
+    <input type="text" name="role" placeholder="Rol" />
+    <button type="submit">Kayıt Ol</button>
+</form>
+
+

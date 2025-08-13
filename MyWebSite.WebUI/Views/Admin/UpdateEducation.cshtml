@@ -1,0 +1,36 @@
+﻿@model Education
+@{
+    ViewData["Title"] = "UpdateEducation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+    <h4 class="text-center mb-4 text-primary">Eğitim Güncelle</h4>
+
+    <form class="w-75 mx-auto" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group mb-3 row align-items-center">
+            <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Okul Adı</label>
+            <div class="col-sm-9">
+                <input type="text" asp-for="SchoolName" class="form-control form-control-lg" required />
+            </div>
+        </div>
+        <div class="form-group mb-3 row align-items-center">
+            <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Bölüm</label>
+            <div class="col-sm-9">
+                <input type="text" asp-for="Department" class="form-control form-control-lg" required />
+            </div>
+        </div>
+        <div class="form-group mb-3 row align-items-center">
+            <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Tarih Aralığı</label>
+            <div class="col-sm-9">
+                <input type="text" asp-for="Tarih" class="form-control form-control-lg" required />
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-50">Güncelle</button>
+        </div>
+    </form>
+</div>
+

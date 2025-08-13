@@ -1,0 +1,53 @@
+﻿@model AboutPageViewModel
+<section id="hakkimda" class="hero section">
+    @foreach (var item in Model.Abouts)
+    {
+        <div class="hero-content">
+
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                        <div class="hero-text">
+                            <h1>
+                                <label>@item.Name</label>
+                                <label>@item.Surname</label>
+                            </h1>
+
+                            <h2>
+                                <label>@item.Title</label>
+                            </h2>
+
+                            <p class="lead">Ben <span class="typed" data-typed-items='@string.Join(",", Model.JobDescriptions.Select(j => j.JobTitle))'></span></p>
+
+                            <p class="description">
+                                <label>@item.Description</label>
+                            </p>
+
+                            <div class="hero-actions">
+                                <a href="#projeler" class="btn btn-primary">Çalışmalarım</a>
+                                <a href="#iletisim" class="btn btn-outline">İletişim</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                        <div class="hero-visual">
+                            <div class="profile-container">
+                                <div class="profile-background"></div>
+                                <img src="@item.ImageUrl" alt="profil resmi" class="profile-image">
+                                <div class="floating-elements">
+                                    <div class="floating-icon icon-1"><i class="bi bi-palette"></i></div>
+                                    <div class="floating-icon icon-2"><i class="bi bi-code-slash"></i></div>
+                                    <div class="floating-icon icon-3"><i class="bi bi-lightbulb"></i></div>
+                                    <div class="floating-icon icon-4"><i class="bi bi-graph-up"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>

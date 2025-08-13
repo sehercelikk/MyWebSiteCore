@@ -1,0 +1,40 @@
+﻿@model List<Hobby>
+@{
+    ViewData["Title"] = "Hobby";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+     <div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+     <h4 class="text-center mb-4 text-primary">Hobiler</h4>
+     <table class="table table-bordered">
+         <tr class="text-center">
+             <th>SIRA</th>
+             <th>HOBİ</th>
+             <th>AÇIKLAMA</th>
+             <th>FOTOĞRAF</th>
+             <th>İŞLEMLER</th>
+         </tr>
+         <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <th>@item.Id</th>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.ImageUrl</td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="/Admin/DeleteHobby/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                            <a href="/Admin/UpdateHobby/@item.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+         </tbody>
+     </table>
+ </div>
+ <br />
+<a href="/Admin/AddHobby" class="btn btn-success btn-sm">Ekle</a>
+
+

@@ -1,0 +1,74 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>Giriş Yap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/AdminSablon/vendors/iconfonts/font-awesome/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- jQuery & Bootstrap JS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="/css/Giris.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="login">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-5">
+                    <div id="login-box">
+                        <form method="post">
+                            <h3 class="text-center text-info fw-bold fs-3 mb-4">GİRİŞ</h3>
+
+                            <!-- Genel hata mesajları -->
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger">
+                                    @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <div class="text-center">@modelError.ErrorMessage</div>
+                                    }
+                                </div>
+                            }
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" asp-for="Username" class="form-control" placeholder="Kullanıcı Adınız" required />
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">
+                                    <i class="fas fa-key"></i>
+                                </span>
+                                <input type="password" asp-for="Password" class="form-control" placeholder="Şifreniz" required />
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="remember-me" name="remember-me">
+                                <label class="form-check-label text-info" for="remember-me">
+                                    Beni Hatırla
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-info text-white w-100">Giriş Yap</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

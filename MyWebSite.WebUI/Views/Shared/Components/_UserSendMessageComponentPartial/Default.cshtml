@@ -1,0 +1,37 @@
+﻿@model ContactFormModel
+<div class="col-lg-7">
+    <div class="contact-form">
+        <h4 class="text-center mb-4">İLETİŞİME GEÇİN</h4>
+        <form asp-controller="Home" asp-action="SendMessage" method="post">
+            <div class="row gy-4">
+                <div class="col-md-6">
+                    <input type="text" asp-for="Name"  class="form-control" placeholder="Ad Soyad" required/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 ">
+                    <input type="email" asp-for="Email" class="form-control" placeholder="Mail Adresi" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <input type="text" asp-for="Subject" class="form-control" placeholder="Konu" required>
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <textarea asp-for="Message" class="form-control form-control-lg" rows="4" style="resize: vertical;" required></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 text-center">
+                    <button class="btn">Mesaj Gönder</button>
+                </div>
+            </div>
+        </form>
+        @if (TempData["Message"] != null)
+        {
+            <p style="color:@TempData["Color"]">@TempData["Message"]</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model List<Education>
+<section id="egitim" class="resume section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>EĞİTİM BİLGİLERİ</h2>
+    </div>
+    <!-- End Section Title -->
+    @foreach (var item in Model)
+    {
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4">
+                <!-- Education Section -->
+                <div class="resume-section" data-aos="fade-up" data-aos-delay="100">
+                    <h3>
+                        <i class="bi bi-mortarboard me-2"></i>
+                        <lable>@item.SchoolName</lable>
+                    </h3>
+                    <div class="resume-item">
+                        <h5>
+                            <lable>@item.Department</lable>
+                        </h5>
+                        <p class="company">
+                            <i class="bi bi-building"></i>
+                            <lable>@item.Tarih</lable>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>

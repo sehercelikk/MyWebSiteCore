@@ -1,0 +1,38 @@
+﻿@model List<Sertificate>
+<section id="sertifikalar" class="services section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>SERTİFİKA</h2>
+    </div>
+    <!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center">
+            @foreach(var item in Model)
+            {
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card position-relative z-1">
+                            <div class="service-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <a href="#" class="card-action d-flex align-items-center justify-content-center rounded-circle">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                            <h2>
+                                <a href="#">
+                                    <label>@item.SertificateName</label>
+                                </a>
+                            </h2>
+                            <h4>
+                                <label>@item.Company</label>
+                            </h4>
+                            <h6>
+                                <label>@item.Tarih</label>
+                            </h6>
+                        </div>
+                    </div>
+            }
+        </div>
+    </div>
+</section>

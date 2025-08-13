@@ -1,0 +1,39 @@
+﻿@model List<Education>
+@{
+    ViewData["Title"] = "Education";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+    <h4 class="text-center mb-4 text-primary">Eğitimler</h4>
+    <table class="table table-bordered">
+        <tr class="text-center">
+            <th>SIRA</th>
+            <th>OKUL ADI</th>
+            <th>BÖLÜM</th>
+            <th>TARİH</th>
+            <th>İŞLEMLER</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Id</th>
+                    <td>@item.SchoolName</td>
+                    <td>@item.Department</td>
+                    <td>@item.Tarih</td>
+                    <td>
+                        <div style="display: flex; gap: 8px;">
+                            <a href="/Admin/DeleteEducation/@item.Id" class="btn btn-danger btn-sm">Sil</a>
+                            <a href="/Admin/UpdateEducation/@item.Id" class="btn btn-primary btn-sm">Güncelle</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<a href="/Admin/AddEducation" class="btn btn-success btn-sm">Ekle</a>
+
+

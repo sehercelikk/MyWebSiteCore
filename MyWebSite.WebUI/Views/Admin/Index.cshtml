@@ -1,0 +1,54 @@
+﻿@model List<MyAbout>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="card shadow p-5" style="width: 100%; border: none; border-radius: 0;">
+        <h4 class="text-center mb-4 text-primary">Bilgilerim</h4>
+        <form class="w-75 mx-auto" enctype="multipart/form-data" method="post" asp-action="UpdateAbout" asp-controller="Admin">
+            <input type="hidden" name="Id" value="@item.Id" />
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Unvan</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Title" value="@item.Title" class="form-control form-control-lg" />
+                </div>
+            </div>
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Ad</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Name" value="@item.Name" class="form-control form-control-lg" />
+                </div>
+            </div>
+
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Soyad</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Surname" value="@item.Surname" class="form-control form-control-lg" />
+                </div>
+            </div>
+            <div class="form-group mb-3 row align-items-start">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Açıklama</label>
+                <div class="col-sm-9">
+                    <input type="text" name="Description" value="@item.Description" class="form-control form-control-lg" />
+                </div>
+            </div>
+            <div class="form-group mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label text-primary" style="font-size: 21px; font-weight: bold; text-align: end">Fotoğraf</label>
+                <div class="col-sm-9">
+                    <input type="file" name="ImageFile" class="form-control form-control-lg" />
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" width="150" height="200" />
+                    }
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary w-50">Güncelle</button>
+            </div>
+        </form>
+    </div>
+}
